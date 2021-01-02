@@ -1,0 +1,12 @@
+insert into ContactDetails
+(
+	 ContactId,
+	 MemberId,
+	 Value
+)
+values
+(
+	%ContactId%,
+	%memberId%,
+	'%value%'
+);

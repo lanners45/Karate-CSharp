@@ -1,0 +1,15 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=KarakteHelp.chm
+Contents file=Table of Contents.hhc
+Default topic=ActiveMembers.html
+Display compile progress=No
+Index file=Index.hhk
+Language=0x809 English (United Kingdom)
+
+
+[ALIAS]
+IDH_ActiveMembers=ActiveMembers.html
+
+[INFOTYPES]
+

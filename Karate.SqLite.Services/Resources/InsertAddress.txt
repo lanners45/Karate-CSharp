@@ -1,0 +1,16 @@
+insert into Address
+(
+	Street,
+	Village,
+	City,
+	Postcode
+)
+values
+(
+	'%street%',
+	'%village%',
+	'%city%',
+	'%postcode%'
+)
+
+return SELECT last_insert_rowid();

@@ -1,0 +1,7 @@
+C:\Users\john\source\repos\Karate\Karate.Common\bin\Debug\Karate.Common.dll
+C:\Users\john\source\repos\Karate\Karate.Common\bin\Debug\Karate.Common.pdb
+C:\Users\john\source\repos\Karate\Karate.Common\obj\Debug\Karate.Common.csproj.CoreCompileInputs.cache
+C:\Users\john\source\repos\Karate\Karate.Common\obj\Debug\Karate.Common.dll
+C:\Users\john\source\repos\Karate\Karate.Common\obj\Debug\Karate.Common.pdb
+f:\newkarate\Karate.Common.dll
+f:\newkarate\Karate.Common.pdb

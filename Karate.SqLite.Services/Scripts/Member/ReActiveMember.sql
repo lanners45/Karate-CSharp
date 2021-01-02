@@ -1,0 +1,1 @@
+﻿update Member set StatusId = 1 where MemberId = %MemberId%
