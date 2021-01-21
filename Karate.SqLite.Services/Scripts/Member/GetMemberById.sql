@@ -8,6 +8,9 @@
 	m.InactiveDate,
 	m.AddressId,
 	m.Note,
-	m.StartDate
+	m.StartDate,
+	m.TelephoneNumber,
+	m.MobileNumber,
+	m.EmailAddress
 from Member m
 where m.MemberId = %MemberId%

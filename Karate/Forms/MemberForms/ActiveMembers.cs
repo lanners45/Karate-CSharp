@@ -57,10 +57,6 @@ namespace Karate.Forms
 				{
 					Member member = memberForm.GetData();
 					SqLite.Services.MemberData.UpdateMember(member);
-					if (member.Address != null)
-					{
-						SqLite.Services.AddressData.UpdateAddress(member.Address);
-					}
 				}
 			}
 			RefreshData();
@@ -73,8 +69,7 @@ namespace Karate.Forms
 				if (memberForm.ShowDialog() == DialogResult.OK)
 				{
                     Member member = memberForm.GetData();
-                    member.StatusId = 1;
-                    MemberData.InsertMember(member);
+					MemberData.InsertMember(member);
 				}
 			}
 			RefreshData();

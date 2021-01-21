@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>F:\NewKarate\</OutputPath>
+    <OutputPath>d:\NewKarate\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -100,6 +100,12 @@
     </Compile>
     <Compile Include="Forms\MemberForms\ActiveMembers.Designer.cs">
       <DependentUpon>ActiveMembers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MemberForms\Address\SearchAddressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MemberForms\Address\SearchAddressForm.Designer.cs">
+      <DependentUpon>SearchAddressForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MemberForms\Badges\BadgeForm.cs">
       <SubType>Form</SubType>
@@ -224,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MemberForms\ActiveMembers.resx">
       <DependentUpon>ActiveMembers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MemberForms\Address\SearchAddressForm.resx">
+      <DependentUpon>SearchAddressForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MemberForms\Badges\BadgeForm.resx">
       <DependentUpon>BadgeForm.cs</DependentUpon>

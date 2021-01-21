@@ -1,4 +1,4 @@
-﻿insert into Class
+﻿insert into Address
 (
 	Name
 )

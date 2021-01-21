@@ -22,9 +22,9 @@ namespace Karate.Common.Model
 		public Address Address { get; set; }
 		public ClassItem ClassItem { get; set; }
 		public Licence Licence { get; set; }
-		public string EmailAdress { get; set; }
-		public string LandLine { get; set; }
+		public string TelephoneNumber { get; set; }
 		public string MobileNumber { get; set; }
+		public string EmailAddress { get; set; }
 		public string GetFullName
 		{
 			get { return Forenames + " " + Surname; }

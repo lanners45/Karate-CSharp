@@ -7,18 +7,22 @@
 	StatusId,
 	AddressId,
 	Note,
-	StartDate
+	StartDate,
+	TelephoneNumber,
+	MobileNumber,
+	EmailAddress
 )
 values
 (
 	'%Forenames%',
 	'%Surname%',
-	%Classid%,
-	'%DateofBirth%',
+	%ClassId%,
+	'%DateOfBirth%',
 	%StatusId%,
 	%AddressId%,
 	'%Note%',
-	'%StartDate%'
+	'%StartDate%',
+	'%TelephoneNumber%',
+	'%MobileNumber%',
+	'%EmailAddress%'
 )
-
-return  last_insert_rowid();

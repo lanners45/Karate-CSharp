@@ -40,7 +40,7 @@ namespace Karate.SqLite.Services
 				command.CommandText = ScriptManager.ReadScript(enumeration.ScriptItems.GetAddresses);
 				using (SQLiteDataReader reader = command.ExecuteReader())
 				{
-					itemList.Add(ResourceBuilder.ParseReader<Address>(reader).Single());
+					itemList.AddRange(ResourceBuilder.ParseReader<Address>(reader));
 				}
 			}
 			return itemList;
@@ -56,6 +56,22 @@ namespace Karate.SqLite.Services
 				sqlBuilder.ParseSql(item);
 				command.CommandText = sqlBuilder.SQLText;
 				command.ExecuteNonQuery();
+			}
+		}
+
+		public static int InsertAddress(Address item)
+		{
+			using (SQLiteCommand command = new SQLiteCommand())
+			{
+				command.Connection = SqLiteConnectionInstance.Instance.GetConnection;
+				command.CommandType = CommandType.Text;
+				SqlBuilder sqlBuilder = new SqlBuilder(ScriptManager.ReadScript(ScriptItems.InsertAddress));
+				sqlBuilder.ParseSql(item);
+				command.CommandText = sqlBuilder.SQLText;
+				command.ExecuteNonQuery();
+				command.CommandText = "select last_insert_rowid()";
+				var insertedMemberId = command.ExecuteScalar();
+				return int.Parse(insertedMemberId.ToString());
 			}
 		}
 	}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Karate.Common.Model;
+using Karate.Forms.MemberForms.Address;
 using Karate.SqLite.Services;
 
 namespace Karate.Forms
@@ -10,33 +11,42 @@ namespace Karate.Forms
 	public partial class MemberForm : Form
 	{
 		private Member _member;
+		protected Boolean IsNewMember = true;
+
 		public MemberForm()
 		{
 			InitializeComponent();
+
+			var addressList = AddressData.GetAddresses();
+			AddressComboBox.DataSource = addressList;
+			AddressComboBox.DisplayMember = "Name";
 		}
 
 		public void PopulateForm(ActiveMemberSummary activeMemberSummary) 
 		{
 			_member = Karate.SqLite.Services.MemberData.GetMemberById(activeMemberSummary);
-			_member.Address = SqLite.Services.AddressData.GetAddressById(new Address() { AddressId = _member.AddressId });
-			_member.ClassItem = SqLite.Services.ClassData.GetClassItems().Single(item => item.ClassId == _member.ClassId);
-			_member.Licence = SqLite.Services.MemberData.GetLicenceById(_member);
-			ClassComboBox.Text = _member.ClassItem.Name;
-			FirstNameTextBox.Text = _member.Forenames;
-			LastNameTextBox.Text = _member.Surname;
-			AddressTextBox.Text = _member.Address.Name;
-			StartDatePicker.Value = _member.StartDate;
-			BirthDatePicker.Value = _member.DateOfBirth;
-		
-			if (_member.Licence != null && _member.Licence.ExpiryDate.HasValue)
-			{
-				ExpiryDatePicker.Value = _member.Licence.ExpiryDate.Value;
-			}
-			
-			/*LandlineTextBox.Text = member.LandLine;
-			MobileNumberTextBox.Text = member.MobileNumber;
-			//EmailAdressTextBox.Text = member.EmailAdress;*/
-			NotesTextBox.Text = _member.Note;
+				_member.Address = SqLite.Services.AddressData.GetAddressById(new Address() { AddressId = _member.AddressId });
+				_member.ClassItem = SqLite.Services.ClassData.GetClassItems().Single(item => item.ClassId == _member.ClassId);
+				_member.Licence = SqLite.Services.MemberData.GetLicenceById(_member);
+
+				ClassComboBox.Text = _member.ClassItem.Name;
+				FirstNameTextBox.Text = _member.Forenames;
+				LastNameTextBox.Text = _member.Surname;
+				AddressTextBox.Text = _member.Address.Name;
+				StartDatePicker.Value = _member.StartDate;
+				BirthDatePicker.Value = _member.DateOfBirth;
+
+				if (_member.Licence != null && _member.Licence.ExpiryDate.HasValue)
+				{
+					ExpiryDatePicker.Value = _member.Licence.ExpiryDate.Value;
+				}
+
+				LandlineTextBox.Text = _member.TelephoneNumber;
+				MobileNumberTextBox.Text = _member.MobileNumber;
+				EmailAdressTextBox.Text = _member.EmailAddress;
+				NotesTextBox.Text = _member.Note;
+
+			IsNewMember = false;
 			ExpiryDatePicker.Enabled = false;
 		}
 
@@ -48,21 +58,30 @@ namespace Karate.Forms
 		public Member GetData()
 		{
 			Member member = new Member();
-			member.MemberId = _member.MemberId;
-			member.AddressId = _member.AddressId;
+			if (_member != null)
+			{
+				member.MemberId = _member.MemberId;
+			}
+			if (AddressTextBox.TextLength>0)
+            {
+				member.Address = new Address();
+				member.Address.Name = AddressTextBox.Text;
+            }
+			else
+            {
+				member.Address = ((Address)AddressComboBox.SelectedItem);
+				member.AddressId = member.Address.AddressId;
+			}
+
 			member.Forenames = FirstNameTextBox.Text;
 			member.Surname = LastNameTextBox.Text;
-			/*
-			member.LandLine = LandlineTextBox.Text;
-			member.MobileNumber = MobileNumberTextBox.Text;*/
+			member.TelephoneNumber = LandlineTextBox.Text;
+			member.MobileNumber = MobileNumberTextBox.Text;
+			member.EmailAddress = EmailAdressTextBox.Text;
 			member.StartDate = StartDatePicker.Value;
 			member.DateOfBirth = BirthDatePicker.Value;
-			if (_member.Address.Name != AddressTextBox.Text)
-			{
-				member.Address.Name = AddressTextBox.Text;
-				member.Address.AddressId = _member.AddressId;
-			}
-			_member.Note = NotesTextBox.Text;
+
+			member.Note = NotesTextBox.Text;
 /*			if (ExpiryDatePicker.Enabled)
 			{
 				_member.ExpiryDate = ExpiryDatePicker.Value;
@@ -90,6 +109,24 @@ namespace Karate.Forms
                 SaveButton.Enabled = false;
             else
                 SaveButton.Enabled = true;
+        }
+
+        private void AddressSearchButton_Click(object sender, EventArgs e)
+        {
+			using (SearchAddressForm searchAddressForm = new SearchAddressForm())
+			{
+				searchAddressForm.ShowDialog();
+			}
+        }
+
+        private void AddressComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

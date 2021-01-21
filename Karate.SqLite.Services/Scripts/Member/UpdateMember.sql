@@ -7,5 +7,8 @@ set
     StartDate = '%StartDate%',
     StatusId = %StatusId%,
     Note = '%Note%',
-    DateOfBirth = '%DateOfBirth%'
+    DateOfBirth = '%DateOfBirth%',
+    TelephoneNumber = '%TelephoneNumber%',
+    MobileNumber = '%MobileNumber%',
+    EmailAddress = '%EmailAddress%'
 where MemberId = %MemberId%

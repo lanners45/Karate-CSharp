@@ -103,6 +103,15 @@ namespace Karate.SqLite.Services
 
 		public static void UpdateMember(Member member)
 		{
+			if (member.Address.AddressId <= 0)
+			{
+				member.AddressId = AddressData.InsertAddress(member.Address);
+			}
+			else
+            {
+				AddressData.UpdateAddress(member.Address);
+            }
+
 			using (SQLiteCommand command = new SQLiteCommand())
 			{
 				command.Connection = SqLiteConnectionInstance.Instance.GetConnection;
@@ -138,6 +147,11 @@ namespace Karate.SqLite.Services
 
 		public static int InsertMember(Member member)
 		{
+			if (member.Address.AddressId <= 0)
+			{
+				member.AddressId = AddressData.InsertAddress(member.Address);
+			}
+
 			using (SQLiteCommand command = new SQLiteCommand())
 			{
 				command.Connection = SqLiteConnectionInstance.Instance.GetConnection;
@@ -145,8 +159,10 @@ namespace Karate.SqLite.Services
 				SqlBuilder sqlBuilder = new SqlBuilder(ScriptManager.ReadScript(ScriptItems.InsertMember));
 				sqlBuilder.ParseSql(member);
 				command.CommandText = sqlBuilder.SQLText;
-				object memberId = command.ExecuteScalar();
-				return int.Parse(memberId.ToString());
+				int Status = command.ExecuteNonQuery();
+				command.CommandText = "select last_insert_rowid()";
+				var insertedMemberId = command.ExecuteScalar();
+				return int.Parse(insertedMemberId.ToString());
 			}
 		}
 		

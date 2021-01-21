@@ -30,6 +30,8 @@
 		{
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.AddressComboBox = new System.Windows.Forms.ComboBox();
             this.ExpiryDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.NotesTextBox = new System.Windows.Forms.TextBox();
@@ -52,14 +54,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.SaveButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.AddressComboBox);
             this.groupBox1.Controls.Add(this.ExpiryDatePicker);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.NotesTextBox);
@@ -84,14 +88,32 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(22, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(304, 440);
+            this.groupBox1.Size = new System.Drawing.Size(341, 447);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Member Details";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(5, 97);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(117, 13);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Select Existing Address";
+            // 
+            // AddressComboBox
+            // 
+            this.AddressComboBox.FormattingEnabled = true;
+            this.AddressComboBox.Location = new System.Drawing.Point(123, 97);
+            this.AddressComboBox.Name = "AddressComboBox";
+            this.AddressComboBox.Size = new System.Drawing.Size(145, 21);
+            this.AddressComboBox.TabIndex = 22;
+            this.AddressComboBox.SelectedIndexChanged += new System.EventHandler(this.AddressComboBox_SelectedIndexChanged);
+            // 
             // ExpiryDatePicker
             // 
-            this.ExpiryDatePicker.Location = new System.Drawing.Point(97, 280);
+            this.ExpiryDatePicker.Location = new System.Drawing.Point(123, 302);
             this.ExpiryDatePicker.Name = "ExpiryDatePicker";
             this.ExpiryDatePicker.Size = new System.Drawing.Size(145, 20);
             this.ExpiryDatePicker.TabIndex = 21;
@@ -99,7 +121,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(36, 284);
+            this.label11.Location = new System.Drawing.Point(62, 306);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(59, 13);
             this.label11.TabIndex = 20;
@@ -107,7 +129,7 @@
             // 
             // NotesTextBox
             // 
-            this.NotesTextBox.Location = new System.Drawing.Point(97, 332);
+            this.NotesTextBox.Location = new System.Drawing.Point(123, 354);
             this.NotesTextBox.Multiline = true;
             this.NotesTextBox.Name = "NotesTextBox";
             this.NotesTextBox.Size = new System.Drawing.Size(145, 77);
@@ -116,7 +138,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(56, 335);
+            this.label10.Location = new System.Drawing.Point(82, 357);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(35, 13);
             this.label10.TabIndex = 18;
@@ -124,7 +146,7 @@
             // 
             // BirthDatePicker
             // 
-            this.BirthDatePicker.Location = new System.Drawing.Point(97, 306);
+            this.BirthDatePicker.Location = new System.Drawing.Point(123, 328);
             this.BirthDatePicker.Name = "BirthDatePicker";
             this.BirthDatePicker.Size = new System.Drawing.Size(145, 20);
             this.BirthDatePicker.TabIndex = 17;
@@ -132,7 +154,7 @@
             // 
             // StartDatePicker
             // 
-            this.StartDatePicker.Location = new System.Drawing.Point(97, 256);
+            this.StartDatePicker.Location = new System.Drawing.Point(123, 278);
             this.StartDatePicker.Name = "StartDatePicker";
             this.StartDatePicker.Size = new System.Drawing.Size(145, 20);
             this.StartDatePicker.TabIndex = 16;
@@ -140,7 +162,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(37, 310);
+            this.label8.Location = new System.Drawing.Point(63, 332);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(54, 13);
             this.label8.TabIndex = 15;
@@ -149,7 +171,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(36, 260);
+            this.label9.Location = new System.Drawing.Point(62, 282);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(55, 13);
             this.label9.TabIndex = 14;
@@ -157,7 +179,7 @@
             // 
             // EmailAdressTextBox
             // 
-            this.EmailAdressTextBox.Location = new System.Drawing.Point(97, 234);
+            this.EmailAdressTextBox.Location = new System.Drawing.Point(123, 256);
             this.EmailAdressTextBox.Name = "EmailAdressTextBox";
             this.EmailAdressTextBox.Size = new System.Drawing.Size(145, 20);
             this.EmailAdressTextBox.TabIndex = 13;
@@ -165,7 +187,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 238);
+            this.label7.Location = new System.Drawing.Point(44, 260);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 13);
             this.label7.TabIndex = 12;
@@ -173,7 +195,7 @@
             // 
             // MobileNumberTextBox
             // 
-            this.MobileNumberTextBox.Location = new System.Drawing.Point(97, 208);
+            this.MobileNumberTextBox.Location = new System.Drawing.Point(123, 230);
             this.MobileNumberTextBox.Name = "MobileNumberTextBox";
             this.MobileNumberTextBox.Size = new System.Drawing.Size(145, 20);
             this.MobileNumberTextBox.TabIndex = 11;
@@ -181,7 +203,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 212);
+            this.label6.Location = new System.Drawing.Point(39, 234);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 13);
             this.label6.TabIndex = 10;
@@ -189,7 +211,7 @@
             // 
             // LandlineTextBox
             // 
-            this.LandlineTextBox.Location = new System.Drawing.Point(97, 182);
+            this.LandlineTextBox.Location = new System.Drawing.Point(123, 204);
             this.LandlineTextBox.Name = "LandlineTextBox";
             this.LandlineTextBox.Size = new System.Drawing.Size(145, 20);
             this.LandlineTextBox.TabIndex = 9;
@@ -197,7 +219,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 186);
+            this.label5.Location = new System.Drawing.Point(30, 208);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 13);
             this.label5.TabIndex = 8;
@@ -205,7 +227,7 @@
             // 
             // AddressTextBox
             // 
-            this.AddressTextBox.Location = new System.Drawing.Point(97, 99);
+            this.AddressTextBox.Location = new System.Drawing.Point(123, 121);
             this.AddressTextBox.Multiline = true;
             this.AddressTextBox.Name = "AddressTextBox";
             this.AddressTextBox.Size = new System.Drawing.Size(145, 77);
@@ -214,22 +236,22 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 99);
+            this.label4.Location = new System.Drawing.Point(23, 121);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.Size = new System.Drawing.Size(98, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Address";
+            this.label4.Text = "Enter New Address";
             // 
             // LastNameTextBox
             // 
-            this.LastNameTextBox.Location = new System.Drawing.Point(97, 73);
+            this.LastNameTextBox.Location = new System.Drawing.Point(123, 71);
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(145, 20);
             this.LastNameTextBox.TabIndex = 5;
             // 
             // FirstNameTextBox
             // 
-            this.FirstNameTextBox.Location = new System.Drawing.Point(97, 47);
+            this.FirstNameTextBox.Location = new System.Drawing.Point(123, 45);
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(145, 20);
             this.FirstNameTextBox.TabIndex = 4;
@@ -237,7 +259,7 @@
             // ClassComboBox
             // 
             this.ClassComboBox.FormattingEnabled = true;
-            this.ClassComboBox.Location = new System.Drawing.Point(97, 20);
+            this.ClassComboBox.Location = new System.Drawing.Point(123, 18);
             this.ClassComboBox.Name = "ClassComboBox";
             this.ClassComboBox.Size = new System.Drawing.Size(121, 21);
             this.ClassComboBox.TabIndex = 3;
@@ -245,7 +267,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 77);
+            this.label3.Location = new System.Drawing.Point(59, 75);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 2;
@@ -254,7 +276,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 51);
+            this.label2.Location = new System.Drawing.Point(60, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 1;
@@ -263,30 +285,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 24);
+            this.label1.Location = new System.Drawing.Point(85, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Class";
-            // 
-            // SaveButton
-            // 
-            this.SaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.SaveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.SaveButton.Image = global::Karate.Properties.Resources.save;
-            this.SaveButton.Location = new System.Drawing.Point(216, 458);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(49, 44);
-            this.SaveButton.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.SaveButton, "Save details");
-            this.SaveButton.UseVisualStyleBackColor = true;
             // 
             // CancelButton
             // 
             this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelButton.Image = global::Karate.Properties.Resources.delete;
-            this.CancelButton.Location = new System.Drawing.Point(271, 458);
+            this.CancelButton.Location = new System.Drawing.Point(314, 471);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(49, 44);
             this.CancelButton.TabIndex = 2;
@@ -294,11 +304,24 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // SaveButton
+            // 
+            this.SaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SaveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.SaveButton.Image = global::Karate.Properties.Resources.save;
+            this.SaveButton.Location = new System.Drawing.Point(259, 471);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(49, 44);
+            this.SaveButton.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.SaveButton, "Save details");
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
             // MemberForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(332, 514);
+            this.ClientSize = new System.Drawing.Size(379, 527);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.groupBox1);
@@ -317,20 +340,6 @@
 		#endregion
 
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.TextBox NotesTextBox;
-		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.DateTimePicker BirthDatePicker;
-		private System.Windows.Forms.DateTimePicker StartDatePicker;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.TextBox EmailAdressTextBox;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.TextBox MobileNumberTextBox;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.TextBox LandlineTextBox;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.TextBox AddressTextBox;
-		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.TextBox LastNameTextBox;
 		private System.Windows.Forms.TextBox FirstNameTextBox;
 		private System.Windows.Forms.ComboBox ClassComboBox;
@@ -340,7 +349,23 @@
 		private System.Windows.Forms.Button SaveButton;
 		private System.Windows.Forms.ToolTip toolTip1;
 		private System.Windows.Forms.Button CancelButton;
-		private System.Windows.Forms.DateTimePicker ExpiryDatePicker;
-		private System.Windows.Forms.Label label11;
-	}
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox AddressComboBox;
+        private System.Windows.Forms.DateTimePicker ExpiryDatePicker;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox NotesTextBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker BirthDatePicker;
+        private System.Windows.Forms.DateTimePicker StartDatePicker;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox EmailAdressTextBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox MobileNumberTextBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox LandlineTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox AddressTextBox;
+        private System.Windows.Forms.Label label4;
+    }
 }
